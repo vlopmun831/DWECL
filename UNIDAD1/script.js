@@ -93,3 +93,52 @@
             console.log("Valor : " + valor);
             console.log("El algoritmo ha tardado " + (endTime - iniTime) + " segundos");
         }
+
+        //Ejercicio 14
+
+
+
+
+        //Ejercicio 15
+
+            function pedir_nombre(){
+        // Pedir el nombre de usuario
+            let nombre = window.prompt("¿Cuál es tu nombre?");
+
+        // Preguntar si quiere abandonar el programa
+            let respuesta = window.confirm(`Hola ${nombre}, ¿quieres abandonar el programa?`);
+
+        //  Mostrar la respuesta del usuario
+            if (respuesta) {
+                window.alert("Has decidido abandonar el programa.");
+                } else {
+                    window.alert("Has decidido continuar en el programa.");
+                }
+            }
+        // Mostrar "FIN DEL PROGRAMA" en la consola con estilo
+                console.log("%cFIN DEL PROGRAMA", "font-weight: bold; text-decoration: underline; color: blue;");
+        
+    
+        //Ejercicio 16
+
+        function pedir_datos(){
+            let edad = window.prompt("Dime tu edad");
+
+            let nombre = window.prompt("Dime tu nombre");
+
+            let ciudad = window.prompt("Dime tu ciudad");
+            let direccion = window.prompt("Dime tu dirección");
+            let  numTelf = window.prompt("Dime tu teléfono");
+
+            let telefono = BigInt(numTelf);
+            let edadBigInt = BigInt(edad);
+            let potencia = edadBigInt **5n;
+            if (potencia == telefono ){
+
+            }else if (ciudad == "Mairena del Alcor"){
+
+                window.alert("Enhorabuena!!!!");
+            }else{
+                window.alert("Ohhh, lo siento!");
+            }
+        }

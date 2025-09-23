@@ -95,50 +95,64 @@
         }
 
         //Ejercicio 14
-
-
-
+        function confirmar(){
+        let respuesta=prompt("¿Estás seguro de su acción?")
+        }
 
         //Ejercicio 15
 
-            function pedir_nombre(){
-        // Pedir el nombre de usuario
-            let nombre = window.prompt("¿Cuál es tu nombre?");
+         function pedir_nombre(){
+        
+         let seguir =true;
 
-        // Preguntar si quiere abandonar el programa
-            let respuesta = window.confirm(`Hola ${nombre}, ¿quieres abandonar el programa?`);
+            while(seguir){
+             let nombre = window.prompt("¿Cuál es tu nombre?");
+             console.log("Hola" + nombre);
+      
+             seguir= window.confirm(` ¿quieres continuar el programa?`);
+                console.log("Has decidido continuar" + seguir)
+        }
 
-        //  Mostrar la respuesta del usuario
-            if (respuesta) {
-                window.alert("Has decidido abandonar el programa.");
-                } else {
-                    window.alert("Has decidido continuar en el programa.");
-                }
-            }
-        // Mostrar "FIN DEL PROGRAMA" en la consola con estilo
+                 // Mostrar "FIN DEL PROGRAMA" en la consola con estilo
                 console.log("%cFIN DEL PROGRAMA", "font-weight: bold; text-decoration: underline; color: blue;");
         
+            }
+       
     
         //Ejercicio 16
 
         function pedir_datos(){
-            let edad = window.prompt("Dime tu edad");
+            let edad = document.getElementById("edad").value;
 
-            let nombre = window.prompt("Dime tu nombre");
+            let nombre =document.getElementById("nombre").value;
 
-            let ciudad = window.prompt("Dime tu ciudad");
-            let direccion = window.prompt("Dime tu dirección");
-            let  numTelf = window.prompt("Dime tu teléfono");
+            let ciudad = document.getElementById("ciudad").value;
+            let direccion = document.getElementById("direccion").value;
+            let  numTelf = document.getElementById("numTelf").value;
+           
 
-            let telefono = BigInt(numTelf);
-            let edadBigInt = BigInt(edad);
-            let potencia = edadBigInt **5n;
-            if (potencia == telefono ){
+           
+            if (edad**5== numTelf|| ciudad.toUpperCase === "Mairena del Alcor".toUpperCase){
 
-            }else if (ciudad == "Mairena del Alcor"){
 
-                window.alert("Enhorabuena!!!!");
+                console.log("Enhorabuena!!!!");
             }else{
-                window.alert("Ohhh, lo siento!");
+                console.log("Ohhh, lo siento!");
             }
         }
+
+        //Ejercicio 17
+            function contar_cifras(){
+             let numero = Math.abs(prompt("Introduce un número:"));
+             let cifras =0;
+             while (numero >=1){
+                cifras ++;
+                numero = numero/10;
+             }
+           
+            
+            numero= number(prompt("Introduce un número: "));
+                }   
+
+                 console.log("El número tiene "+ cifras + " cifra(s).");
+            

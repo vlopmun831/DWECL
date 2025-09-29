@@ -144,7 +144,7 @@
         //Ejercicio 17
             function contar_cifras(){
              let numero = Math.abs(prompt("Introduce un número:"));
-             let cifras =0;
+             var cifras =0;
              while (numero >=1){
                 cifras ++;
                 numero = numero/10;
@@ -155,4 +155,69 @@
                 }   
 
                  console.log("El número tiene "+ cifras + " cifra(s).");
-            
+           
+          //Ejercicio 18
+
+                function etapa_vida(){
+                    let edad = document.getElementById("edad");
+                    switch(true){
+                        case edad >=0 && edad <=16:
+                                pintar_mensaje("Eres un niño", true);
+                                break;
+                        case edad > 16 && edad <=25:
+                                 pintar_mensaje("Eres un niño", true) ;
+                                 break;
+                        case edad >25 && edad <=60:
+                                pintar_mensaje("Eres un adulto", true);
+                                break;
+                        case edad > 60:
+                                pintar_mensaje("Eres un senior", true);
+                                break;
+                        default:
+                            pintar_mensaje("Error,edad introducida no válida", false);
+                            break
+                        
+                        
+                    }
+                }
+                function pintar_mensaje(mensaje, isOk){
+                    let aviso = document.getElementById("aviso");
+                    aviso.textContent = mensaje;
+                    if(isOk){
+                        aviso.style.color ="green";
+                    }else{aviso.style.color = "red";
+                        }
+                    }
+                //Ejercicio 19
+
+                function acierta_aleatorio(){
+                   
+                    const aleat = Math.trunc((Math.random()*10)+1);
+                    let intento = 0;
+
+                     alert("Se ha calculado un número aleatorio,¿eres capaz de acertarlo?");
+
+                        do {
+                            intento ++;
+                            var valor_intento = Number(prompt("Intento" + intento));
+                        }while(valor_intento != aleat);
+                    
+                        
+                        console.log("Enhorabuena, has acertado, el número aleatorio era " + aleat );
+                        console.log(" Has necesitado " + intento+ " intentos");
+}
+                //Ejercicio 20
+
+                function imprime_multiplos(){
+                    let n = Number(prompt("Introduce un número"));
+                    let multiplo = 0;
+                    const max =100;
+                    for (let i =n+1 ; i< max; i++){
+                        if(i%n == 0){
+                            multiplo++;
+                            console.log("Múltiplo encontrado " + i);
+                        }
+                    }
+
+                    console.log("El número " + n + " tiene " + multiplo + " múltiplos");
+                }

@@ -94,3 +94,92 @@ function fibonacci(numero){
         console.log("El resultado de la ecuación de :" + a + "x^2 " + b + "x" + c + " = 0 es (" + resul1 + ", " + resul2 + ")");
     }
     }
+
+
+    function calcular_letra_dni(){
+
+         const letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+
+        do{
+          var numDni = Number(prompt("Introduce tu número de DNI"));
+
+        }
+        while(isNaN(numDni));
+    
+
+        if(numDni <0 || numDni>99999999){
+            return "número no válido"
+            
+        
+        }
+        return letras.charAt(letra);
+    }
+        console.log("Tu letra del DNI es: "+ letras(numDni%23));
+    
+
+
+
+
+
+    function calcular_area_triángulo(){
+        let base = Number(prompt("Introduce la base del triángulo"));
+        let altura = Number(prompt("Introduce su altura"));
+
+        return (base*altura/2);
+    }
+        let areaTriangulo = calcular_area_triángulo();
+
+    function calcular_area_rectangulo(){
+        let base = Number(prompt("Introduce la base del rectángulo"));
+        let altura = Number(prompt("Introduce la altura del rectángulo"));
+
+        return (base*altura);
+    }
+        let areaRectangulo = calcular_area_rectangulo;
+        console.log("El área del rectángulo es: "+ areaRectangulo);
+
+
+    function calcular_area_circulo(){
+        
+        let radio =Number(prompt("Introduce el radio del círculo"));
+
+        return (Math.PI*Math.pow(radio,2));
+
+
+    }
+        let areaCirculo = calcular_area_circulo();
+        console.log("El área del círculo es: "+ areaCirculo);
+
+        function mostrar_menu(){    
+        do {
+        var opcion = prompt(
+            "Elige una opción:\n" +
+            "a. Calcular el área de un triángulo\n" +
+            "b. Calcular el área de un rectángulo\n" +
+            "c. Calcular el área de un círculo\n" +
+            "d. Salir");
+
+
+                    switch (opcion) {
+            case "a":
+
+            calcularAreaTriangulo();
+            break;
+            case "b":
+            calcularAreaRectangulo();
+            break;
+            case "c":
+            calcularAreaCirculo();
+            break;
+            case "d":
+            alert("Saliendo del programa...");
+            break;
+            default:
+            alert("Opción no válida. Inténtalo de nuevo.");
+        }
+        
+        } while (opcion !== "d");
+
+
+        
+    }

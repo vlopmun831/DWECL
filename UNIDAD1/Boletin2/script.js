@@ -115,7 +115,7 @@ function fibonacci(numero){
         // mediante el siguiente algoritmo: el número de DNI se divide entre 23 y el resto  
     function calcular_letra_dni(){
 
-         const letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+         const letras = ["T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q", "V", "H", "L", "C", "K", "E"];
 
         do{
           var numDni = Number(prompt("Introduce tu número de DNI"));
@@ -123,15 +123,15 @@ function fibonacci(numero){
         }
         while(isNaN(numDni));
     
+            console.log("Tu letra del DNI es: "+ letras[numDni % 23]);
 
-        if(numDni <0 || numDni>99999999){
-            return "número no válido"
-            
-        
-        }
-        return letras.charAt(letra);
+    
+
     }
-        console.log("Tu letra del DNI es: "+ letras(numDni%23));
+            
+
+
+
     
 
 
@@ -140,35 +140,7 @@ function fibonacci(numero){
         // usuario tendrá que introducir los valores necesarios en cada caso para obtener su
         // solución. Esta lógica se debe repetir siempre que no se indique Salir.   
 
-    function calcular_area_triángulo(){
-        let base = Number(prompt("Introduce la base del triángulo"));
-        let altura = Number(prompt("Introduce su altura"));
-
-        return (base*altura/2);
-    }
-        let areaTriangulo = calcular_area_triángulo();
-
-    function calcular_area_rectangulo(){
-        let base = Number(prompt("Introduce la base del rectángulo"));
-        let altura = Number(prompt("Introduce la altura del rectángulo"));
-
-        return (base*altura);
-    }
-        let areaRectangulo = calcular_area_rectangulo;
-        console.log("El área del rectángulo es: "+ areaRectangulo);
-
-
-    function calcular_area_circulo(){
-        
-        let radio =Number(prompt("Introduce el radio del círculo"));
-
-        return (Math.PI*Math.pow(radio,2));
-
-
-    }
-        let areaCirculo = calcular_area_circulo();
-        console.log("El área del círculo es: "+ areaCirculo);
-
+   
         function mostrar_menu(){    
         do {
         var opcion = prompt(
@@ -182,13 +154,15 @@ function fibonacci(numero){
                     switch (opcion) {
             case "a":
 
-            calcularAreaTriangulo();
+            console.log("El área del triángulo es: " + calcular_area_triangulo());
             break;
             case "b":
-            calcularAreaRectangulo();
+                console.log("El área del rectángulo es: " + calcular_area_rectangulo());
+
             break;
             case "c":
-            calcularAreaCirculo();
+                console.log("El área del círculo es: " + calcular_area_circulo());
+
             break;
             case "d":
             alert("Saliendo del programa...");
@@ -202,6 +176,30 @@ function fibonacci(numero){
 
         
     }
+     function calcular_area_triangulo(){
+        let base = Number(prompt("Introduce la base del triángulo"));
+        let altura = Number(prompt("Introduce su altura"));
+
+        return (base*altura/2);
+    }
+
+    function calcular_area_rectangulo(){
+        let base = Number(prompt("Introduce la base del rectángulo"));
+        let altura = Number(prompt("Introduce la altura del rectángulo"));
+
+        return (base*altura);
+    }
+
+
+    function calcular_area_circulo(){
+        
+        let radio =Number(prompt("Introduce el radio del círculo"));
+
+        return (Math.PI*Math.pow(radio,2));
+
+
+    }
+
 
 
     // Ejercicio 6.Realiza un programa que muestre los números impares que no sean múltiplo de 3 ni
@@ -217,7 +215,7 @@ function fibonacci(numero){
     }
 }
 
-    function enseñar_impares_while(){
+    function mostrar_impares_while(){
         let impares = 1;
         while(impares <=100){
             if(impares%2 !==0 && impares%3 !==0 && impares%7 !==0){
@@ -227,7 +225,7 @@ function fibonacci(numero){
     }
 }
 
-    function mostrar_impares_dowhile(){
+    function mostrar_impares_do_while(){
     let impares =1;
     do{
         if(impares%2 !==0 && impares%3 !==0 && impares%7 !==0){
@@ -235,6 +233,6 @@ function fibonacci(numero){
         }                                                       
         impares++;
     }while(impares <=100);
-    
+
     
     }

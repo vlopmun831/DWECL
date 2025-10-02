@@ -261,16 +261,18 @@
                 }   
 
            
-          //Ejercicio 18
+          //Ejercicio 18.Realiza un programa que dada tu edad indique si eres niño (0-16 años), joven (17-25
+                // años), adulto (26 - 60 años) o senior, en adelante.
+
 
                 function etapa_vida(){
-                    let edad = document.getElementById("edad");
+                    let edad =parseInt( document.getElementById("edad").value);
                     switch(true){
                         case edad >=0 && edad <=16:
                                 pintar_mensaje("Eres un niño", true);
                                 break;
                         case edad > 16 && edad <=25:
-                                 pintar_mensaje("Eres un niño", true) ;
+                                 pintar_mensaje("Eres joven", true) ;
                                  break;
                         case edad >25 && edad <=60:
                                 pintar_mensaje("Eres un adulto", true);
@@ -279,7 +281,7 @@
                                 pintar_mensaje("Eres un senior", true);
                                 break;
                         default:
-                            pintar_mensaje("Error,edad introducida no válida", false);
+                            pintar_mensaje("Error,edad introducida no válida", false);  
                             break
                         
                         
@@ -293,14 +295,16 @@
                     }else{aviso.style.color = "red";
                         }
                     }
-                //Ejercicio 19
+                //Ejercicio 19.Realiza un programa que calcule un número aleatorio entre 1 y 10 y pida intentos
+                    // hasta que aciertes. Al finalizar debe mostrar por pantalla el número de intentos que
+                    // has realizado
 
                 function acierta_aleatorio(){
                    
                     const aleat = Math.trunc((Math.random()*10)+1);
                     let intento = 0;
 
-                     alert("Se ha calculado un número aleatorio,¿eres capaz de acertarlo?");
+                     alert("Se ha calculado un número aleatorio del uno al diez,¿eres capaz de acertarlo?");
 
                         do {
                             intento ++;
@@ -311,7 +315,7 @@
                         console.log("Enhorabuena, has acertado, el número aleatorio era " + aleat );
                         console.log(" Has necesitado " + intento+ " intentos");
 }
-                //Ejercicio 20
+                //Ejercicio 20.Muestra por pantalla el número de múltiplos de siete que existen entre 8 y 100
 
                 function imprime_multiplos(){
                     let n = Number(prompt("Introduce un número"));

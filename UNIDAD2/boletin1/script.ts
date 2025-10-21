@@ -6,23 +6,58 @@ function ej1(): void{
     console.log("Hora posterior: " + (fecha.getHours()+1)+ ":" +fecha.getMinutes() + ":" + fecha.getSeconds());
     console.log("Hora anterior: " + (fecha.getHours()-1)+ ":" +fecha.getMinutes() + ":" + fecha.getSeconds());
 
-
 }
+
 //Ejercicio2
 
-function ej2(): {
+function ej2() {
 
-    let expReg: RegExp = new RegExp()
-
-    if(document.getElementById("email") != null){
-    let email = HTMLInputElement = document.getElementById("email") as HTMLInputElement ;
-            let mensajeOk = new document.createElement('span');
-
-    if(expReg.test(email.value)){
-        mensajeOk.textContent = "Email correcto";
-
+    const regExp = new RegExp("[^\s@]+ @[^\s@] + \.[^\s@]+$");
+   
+    if(regExp.test($inputValue("email"))){
+        $writeNode("ok", "El email es válido");
+        $writeNode("error", "");
     }else{
-        mensajeOk.textContent = "Email incorrecto";
+        $writeNode("ok", "");
+        $writeNode("error", "El email no cumple la expresión");
+       
+        }
+}
+
+
+
+//Ejercicio3
+
+function ej3(){
+
+}
+
+
+
+//Ejercicio 4
+
+function ej4(){
+
+
+    
+}
+
+
+//Helpers para todo el boletin
+function $inputValue(id: string) : string{
+    const input = document.getElementById(id) as HTMLInputElement;
+    let result = "";
+
+    if (input){
+        result = input.value;
+    }
+    return result;
+}
+
+function $writeNode (id: string, msg: string) :void {
+    const nodo = document.getElementById(id) as HTMLElement;
+    if(nodo){
+        nodo.textContent = msg;
     }
 }
-}
+

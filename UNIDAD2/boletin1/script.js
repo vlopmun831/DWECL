@@ -20,10 +20,23 @@ function ej2() {
 }
 //Ejercicio3
 function ej3() {
+    var ventana = window.open("https://www.google.es", "nuevaVentana");
+    ventana === null || ventana === void 0 ? void 0 : ventana.document.write("HOLA");
 }
 //Ejercicio 4
 function ej4() {
+    var regExp = new RegExp("^https:\/\/");
+    var url = $inputValue("url");
+    if (regExp.test(url)) {
+        window.location.href = url;
+    }
+    else {
+        $writeNode("error2", "Por favor introduzca una URL válida");
+        setTimeout(function () { return $writeNode("error2", ""); }, 5000);
+    }
 }
+//Ejercicio 5
+//Ejercicio 6 
 //Helpers para todo el boletin
 function $inputValue(id) {
     var input = document.getElementById(id);

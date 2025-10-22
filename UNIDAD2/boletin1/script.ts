@@ -30,6 +30,9 @@ function ej2() {
 
 function ej3(){
 
+
+    let ventana =  window.open("https://www.google.es", "nuevaVentana");
+    ventana?.document.write("HOLA");
 }
 
 
@@ -37,10 +40,27 @@ function ej3(){
 //Ejercicio 4
 
 function ej4(){
-
-
+    const regExp = new RegExp("^https:\/\/");
+    const url = $inputValue("url");
+    if (regExp.test(url)){
+        window.location.href = url;
+    }else{
+        $writeNode("error2", "Por favor introduzca una URL válida");
+        setTimeout(() => $writeNode("error2", ""), 5000);            
+        
+}
     
 }
+
+
+//Ejercicio 5
+
+
+
+//Ejercicio 6 
+
+
+
 
 
 //Helpers para todo el boletin

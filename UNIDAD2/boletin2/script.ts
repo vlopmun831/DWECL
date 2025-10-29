@@ -67,6 +67,24 @@ function mini_app(){
     p.textContent = "Hola, " + nombre + "!";
 
     let desplegable: HTMLSelectElement = document.createElement("select") as HTMLSelectElement;
+ const colores = ["rojo", "verde", "azul", "negro"];
+  colores.forEach(color => {
+    const option = document.createElement("option");
+    option.value = color;
+    option.text = color[0].toUpperCase() + color.slice(1);
+    desplegable.appendChild(option);
+  });
 
-    p.
-}
+  // Cambiar color del párrafo según selección
+  desplegable.addEventListener("change", () => {
+    p.style.color = desplegable.value;
+  });
+
+  // Añadir el selector al DOM
+  document.body.appendChild(desplegable);
+}    
+
+document.addEventListener("DOMContentLoaded", () => {
+  mini_app();
+});
+

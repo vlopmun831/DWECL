@@ -56,6 +56,20 @@ function mini_app() {
     var p = document.getElementById("saludo");
     p.textContent = "Hola, " + nombre + "!";
     var desplegable = document.createElement("select");
-    p.
-    ;
+    var colores = ["rojo", "verde", "azul", "negro"];
+    colores.forEach(function (color) {
+        var option = document.createElement("option");
+        option.value = color;
+        option.text = color[0].toUpperCase() + color.slice(1);
+        desplegable.appendChild(option);
+    });
+    // Cambiar color del párrafo según selección
+    desplegable.addEventListener("change", function () {
+        p.style.color = desplegable.value;
+    });
+    // Añadir el selector al DOM
+    document.body.appendChild(desplegable);
 }
+document.addEventListener("DOMContentLoaded", function () {
+    mini_app();
+});

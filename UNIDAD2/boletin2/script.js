@@ -141,6 +141,9 @@ function modificarElemento() {
 function mostrarTodos() {
     var lista = document.getElementById("lista");
     var unidades = Array.from(lista.children);
+    for (var i = 0; i < unidades.length; i++) {
+        console.log(unidades[i].textContent);
+    }
 }
 function añadirElemento() {
     var lista = document.getElementById("lista");
@@ -150,4 +153,16 @@ function añadirElemento() {
 }
 function eliminarElemento() {
     var lista = document.getElementById("lista");
+    var unidades = Array.from(lista.children);
+    var numero = Number(prompt("Dime que número quieres eliminar"));
+    lista.removeChild(unidades[numero - 1]);
+}
+function ordenarLista() {
+    var lista = document.getElementById("lista");
+    var unidades = Array.from(lista.children);
+    var nombres = [];
+    for (var i = 0; i < unidades.length; i++) {
+        nombres.push(unidades[i].textContent);
+    }
+    console.log(nombres.sort());
 }

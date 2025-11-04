@@ -196,8 +196,10 @@ function duplicarElemento(){
   function mostrarTodos(){
     let lista: HTMLOListElement = document.getElementById("lista") as HTMLOListElement;
     let unidades :HTMLLIElement[] = Array.from(lista.children) as HTMLLIElement[];
-      
-
+      for (let i = 0; i < unidades.length; i++){
+        console.log(unidades[i].textContent);
+      }
+        
   }
 
   function añadirElemento(){
@@ -210,5 +212,19 @@ function duplicarElemento(){
   
   function eliminarElemento(){
       let lista: HTMLOListElement = document.getElementById("lista") as HTMLOListElement;
+     let unidades :HTMLLIElement[] = Array.from(lista.children) as HTMLLIElement[];
+        let numero:number = Number(prompt("Dime que número quieres eliminar"));
+         lista.removeChild(unidades[numero-1]);
+         
+  }
 
+  function ordenarLista(){
+    let lista: HTMLOListElement = document.getElementById("lista") as HTMLOListElement;
+    let unidades :HTMLLIElement[] = Array.from(lista.children) as HTMLLIElement[];
+    let nombres: string[] =[];
+         for (let i = 0; i < unidades.length; i++){
+           nombres.push( unidades[i].textContent);
+
+      } 
+              console.log(nombres.sort());
   }

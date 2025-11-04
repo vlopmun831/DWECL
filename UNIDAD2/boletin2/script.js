@@ -112,3 +112,42 @@ function mostrar_informacion() {
 function mini_navegador() {
     var inputUrl = document.getElementById('urlInput');
 }
+//EJERCICIOS DE RECORRER NODOS
+function contarElementos() {
+    var lista = document.getElementById("lista");
+    console.log("La lista tiene " + lista.children.length + " personas");
+}
+function primerYUltimo() {
+    var _a, _b;
+    var lista = document.getElementById("lista");
+    console.log("El primer elemento de la lista es: " + ((_a = lista.firstElementChild) === null || _a === void 0 ? void 0 : _a.textContent));
+    console.log("El último elemento de la lista es: " + ((_b = lista.lastElementChild) === null || _b === void 0 ? void 0 : _b.textContent));
+}
+function duplicarElemento() {
+    var lista = document.getElementById("lista");
+    var unidades = Array.from(lista.children);
+    var numero = Number(prompt("Dime el número de la lista que quieres duplicar"));
+    var textoduplicado = unidades[numero - 1].textContent;
+    var nuevo = document.createElement("li");
+    nuevo.textContent = textoduplicado;
+    lista.appendChild(nuevo);
+}
+function modificarElemento() {
+    var lista = document.getElementById("lista");
+    var unidades = Array.from(lista.children);
+    var numero = Number(prompt("Dime el número de la lista que quieres modificar"));
+    var textomodificado = unidades[numero - 1].textContent = "Juan";
+}
+function mostrarTodos() {
+    var lista = document.getElementById("lista");
+    var unidades = Array.from(lista.children);
+}
+function añadirElemento() {
+    var lista = document.getElementById("lista");
+    var nuevoElemento = document.createElement("li");
+    nuevoElemento.textContent = prompt("Dime a quién quieres añadir:");
+    lista.appendChild(nuevoElemento);
+}
+function eliminarElemento() {
+    var lista = document.getElementById("lista");
+}

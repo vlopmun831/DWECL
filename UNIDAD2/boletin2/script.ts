@@ -149,3 +149,66 @@ function mini_navegador(){
 }
 
 
+
+
+//EJERCICIOS DE RECORRER NODOS
+function contarElementos(){
+  let lista: HTMLOListElement = document.getElementById("lista") as HTMLOListElement;
+  console.log("La lista tiene " + lista.children.length + " personas");
+}
+
+function primerYUltimo(){
+    let lista: HTMLOListElement = document.getElementById("lista") as HTMLOListElement;
+    console.log("El primer elemento de la lista es: " + lista.firstElementChild?.textContent);
+
+    console.log ("El último elemento de la lista es: " + lista.lastElementChild?.textContent);
+}
+
+
+function duplicarElemento(){
+    let lista: HTMLOListElement = document.getElementById("lista") as HTMLOListElement;
+
+    let unidades :HTMLLIElement[] = Array.from(lista.children) as HTMLLIElement[];
+
+    let numero: number = Number(prompt("Dime el número de la lista que quieres duplicar"));
+
+
+    let textoduplicado = unidades[numero - 1].textContent;
+    let  nuevo:  HTMLLIElement = document.createElement("li")as HTMLLIElement;
+    nuevo.textContent = textoduplicado;
+      
+    lista.appendChild(nuevo);
+  }
+
+  function modificarElemento(){
+    let lista: HTMLOListElement = document.getElementById("lista") as HTMLOListElement;
+
+    let unidades :HTMLLIElement[] = Array.from(lista.children) as HTMLLIElement[];
+
+    let numero: number = Number(prompt("Dime el número de la lista que quieres modificar"));
+    
+
+    let textomodificado= unidades[numero - 1].textContent = "Juan";
+    
+
+  }
+
+  function mostrarTodos(){
+    let lista: HTMLOListElement = document.getElementById("lista") as HTMLOListElement;
+    let unidades :HTMLLIElement[] = Array.from(lista.children) as HTMLLIElement[];
+      
+
+  }
+
+  function añadirElemento(){
+     let lista: HTMLOListElement = document.getElementById("lista") as HTMLOListElement;
+      let nuevoElemento:HTMLLIElement= document.createElement("li") as HTMLLIElement;
+      nuevoElemento.textContent = prompt("Dime a quién quieres añadir:");
+          lista.appendChild(nuevoElemento);
+
+  }
+  
+  function eliminarElemento(){
+      let lista: HTMLOListElement = document.getElementById("lista") as HTMLOListElement;
+
+  }

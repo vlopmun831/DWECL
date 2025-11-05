@@ -1,3 +1,5 @@
+
+
 function cambiar_titulo(){
     let titulo: string = prompt("Introduce un nuevo título") as string;
     console.log (titulo);
@@ -228,3 +230,64 @@ function duplicarElemento(){
       } 
               console.log(nombres.sort());
   }
+
+
+function cuadricula_alumnos(){
+  let contenedor:HTMLDivElement = document.getElementById("contenedor") as HTMLDivElement;
+  let alumnos: string[] = ["Juan", "Pepe", "María", "Bruno", "Jimena", "Vanesa", "Jesús"];
+   contenedor.innerHTML = "";
+
+  for(let i=0;i<alumnos.length;i++){
+    
+    contenedor.appendChild(crear_ficha(alumnos[i]));
+  }
+
+
+}
+function crear_ficha(alumno: string): HTMLDivElement{
+  let ficha:HTMLDivElement = document.createElement("div");
+    ficha.textContent = alumno;
+    ficha.style.backgroundColor = color_aleatorio();
+  return ficha;
+}
+function color_aleatorio():string{
+const colores: string[] = [
+  "#E74C3C", // rojo
+  "#8E44AD", // violeta
+  "#3498DB", // azul
+  "#1ABC9C", // turquesa
+  "#27AE60", // verde
+  "#F39C12", // naranja
+  "#D35400", // marrón
+  "#C0392B", // rojo oscuro
+  "#2ECC71", // verde claro
+  "#9B59B6", // lila
+  "#16A085", // verde azulado
+];
+  const i = Math.floor(Math.random() * colores.length);
+  return colores[i];
+}
+
+function ejercicio_cookie(){
+  let cookieIdioma: string = "lang-ES;";
+  let cookieCurrency: string = "currency=EUR;";
+  document.cookie="";
+  document.cookie = cookieIdioma;
+  document.cookie = cookieCurrency;
+
+  //Leer cookies
+  let arrayCookies: string [] = document.cookie.split(";");
+  arrayCookies.forEach(cookie => console.log("Cookie: " + cookie));
+  //Leemos una en concreto(lang)
+  let valor: string = "";
+  for(let i=0;i<arrayCookies.length;i++){
+    let claveValor = arrayCookies[i].split("=");
+    if(claveValor[0].trim() == "lang"){
+      valor = claveValor[1];
+    }
+  }
+
+}
+function almacenar_cookie(){
+  let cookieUsuario: HTML
+}

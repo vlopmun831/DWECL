@@ -1,3 +1,11 @@
+//  Crea en html un título de Nivel 1 del tipo “Hola Mundo”.
+//   Posteriormente crea un botón que al pulsarlo pida al usuario vía prompt un nuevo título y
+//    que al confirmar este título cambie por aquello que acabamos de introducir. 
+
+window.onload = function() {
+  mostrar_informacion();
+};
+
 
 
 function cambiar_titulo(){
@@ -7,6 +15,10 @@ function cambiar_titulo(){
     let nodoTitulo: HTMLHeadingElement= document.getElementById("titulo") as HTMLHeadingElement;
     nodoTitulo.textContent = titulo;
 }
+
+
+// Crea un botón que al pulsarlo cambie el color de fondo del body a oscuro
+//  y al volver a pulsarlo a claro. 
 
 function cambiar_fondo(){
     let body: HTMLBodyElement = document.body  as HTMLBodyElement;
@@ -21,6 +33,18 @@ function cambiar_fondo(){
 
     }
 }
+
+
+//  Realiza un formulario que pida la edad a una persona.
+//   Al presionar el botón de envío debemos recoger dicha edad 
+//   en una variable numérica y mostrar en el documento
+//    el siguiente texto: (Ten en cuenta que todo debe ser mostrado
+//    en una estructura de lista ordenada por letras. 
+//    En negrita y color verde) a. Eres mayor/menor de edad
+//    b. Tu edad es par/impar 
+//    c. Los divisores de tu edad son: N1, N2, N3….ç
+//    d. Según tu edad eres: Niño (0-15), Joven (15-30),
+//    Adulto (30–60), Mayor (>60)
 
 function analiza_edad(){
     let input: HTMLInputElement = document.getElementById("edad") as HTMLInputElement;
@@ -57,12 +81,12 @@ function analiza_edad(){
 
     let divisores: string = " ";
 
-     for(let i = 1; 1<=edad; i++){
+     for(let i = 1; i<=edad; i++){
         if(edad%i == 0){
             divisores += i + ",";
         }
     }
-      divisores = divisores.substring(0, divisores.length - 2); //Por culpa de Juan Antonio (M. Elite)
+      // divisores = divisores.substring(0, divisores.length - 2); //Por culpa de Juan Antonio (M. Elite)
 
     let listaDivisores: HTMLLIElement = document.createElement("li") as HTMLLIElement;
     listaDivisores.textContent = divisores;
@@ -96,7 +120,11 @@ function analiza_edad(){
 
 }
 
-
+// 4. Crea una mini app que: a. Pregunte el nombre del usuario con un prompt().
+//  b. Lo muestre en pantalla dentro de un <p id="saludo">Hola, ___!</p>.
+//   c. Permita cambiar el color del saludo mediante un <select> con varios colores.
+//   d. Usa as HTMLSelectElement y as HTMLParagraphElement 
+//   para los elementos del DOM. 
 function mini_app(){
     let nombre: string = prompt("Dime tu nombre") as string;
     let p: HTMLParagraphElement = document.getElementById("saludo") as HTMLParagraphElement;
@@ -110,16 +138,16 @@ function mini_app(){
     option.text = color[0].toUpperCase() + color.slice(1);
     desplegable.appendChild(option);
   });
+}
 
-  // Cambiar color 
-  desplegable.addEventListener("change", () => {
-    p.style.color = desplegable.value;
-  });
+function cambiar_color(){
+    let select: HTMLSelectElement = document.getElementById("color") as HTMLSelectElement;
+    let colorOption: HTMLOptionElement = select.options[select.selectedIndex] as HTMLOptionElement;
+    let color = colorOption.value;
 
-  
-  document.body.appendChild(desplegable);
-}    
-
+    let saludo: HTMLParagraphElement = document.getElementById("saludo") as HTMLParagraphElement;
+    saludo.style.color = color;
+}
 
 function mostrar_informacion(){
     let mostrarInformacion: HTMLSelectElement = document.getElementById("menuInformacion") as HTMLSelectElement;
@@ -142,11 +170,17 @@ function mostrar_informacion(){
   });
 }
 
+
+
+
 function mini_navegador(){
 
     let inputUrl : HTMLInputElement = document.getElementById('urlInput') as HTMLInputElement;
 
+   let url: string = inputUrl.value;
 
+    url = "https:\\" + url;
+    window.location.href = url;
 
 }
 

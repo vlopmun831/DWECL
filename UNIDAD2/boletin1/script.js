@@ -8,7 +8,7 @@ function ej1() {
 }
 //Ejercicio2
 function ej2() {
-    var regExp = new RegExp("[^\s@]+ @[^\s@] + \.[^\s@]+$");
+    var regExp = new RegExp("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
     if (regExp.test($inputValue("email"))) {
         $writeNode("ok", "El email es válido");
         $writeNode("error", "");
@@ -18,7 +18,7 @@ function ej2() {
         $writeNode("error", "El email no cumple la expresión");
     }
 }
-//Ejercicio3
+//Ejercicio3//NO SE PUEDE REALIZAR
 function ej3() {
     var ventana = window.open("https://www.google.es", "nuevaVentana");
     ventana === null || ventana === void 0 ? void 0 : ventana.document.write("HOLA");

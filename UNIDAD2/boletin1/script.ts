@@ -12,7 +12,7 @@ function ej1(): void{
 
 function ej2() {
 
-    const regExp = new RegExp("[^\s@] + @[^\s@] + \.[^\s@]+$");
+    const regExp = new RegExp ("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
    
     if(regExp.test($inputValue("email"))){
         $writeNode("ok", "El email es válido");
@@ -26,7 +26,7 @@ function ej2() {
 
 
 
-//Ejercicio3
+//Ejercicio3//NO SE PUEDE REALIZAR
 
 function ej3(){
 

@@ -1,9 +1,17 @@
+//  Crea en html un título de Nivel 1 del tipo “Hola Mundo”.
+//   Posteriormente crea un botón que al pulsarlo pida al usuario vía prompt un nuevo título y
+//    que al confirmar este título cambie por aquello que acabamos de introducir. 
+window.onload = function () {
+    mostrar_informacion();
+};
 function cambiar_titulo() {
     var titulo = prompt("Introduce un nuevo título");
     console.log(titulo);
     var nodoTitulo = document.getElementById("titulo");
     nodoTitulo.textContent = titulo;
 }
+// Crea un botón que al pulsarlo cambie el color de fondo del body a oscuro
+//  y al volver a pulsarlo a claro. 
 function cambiar_fondo() {
     var body = document.body;
     if (body.style.backgroundColor == "white") {
@@ -15,6 +23,16 @@ function cambiar_fondo() {
         body.style.color = "black";
     }
 }
+//  Realiza un formulario que pida la edad a una persona.
+//   Al presionar el botón de envío debemos recoger dicha edad 
+//   en una variable numérica y mostrar en el documento
+//    el siguiente texto: (Ten en cuenta que todo debe ser mostrado
+//    en una estructura de lista ordenada por letras. 
+//    En negrita y color verde) a. Eres mayor/menor de edad
+//    b. Tu edad es par/impar 
+//    c. Los divisores de tu edad son: N1, N2, N3….ç
+//    d. Según tu edad eres: Niño (0-15), Joven (15-30),
+//    Adulto (30–60), Mayor (>60)
 function analiza_edad() {
     var input = document.getElementById("edad");
     var edad = Number(input.value);
@@ -39,12 +57,12 @@ function analiza_edad() {
         parOImpar.textContent = "Tu edad es impar";
     }
     var divisores = " ";
-    for (var i = 1; 1 <= edad; i++) {
+    for (var i = 1; i <= edad; i++) {
         if (edad % i == 0) {
             divisores += i + ",";
         }
     }
-    divisores = divisores.substring(0, divisores.length - 2); //Por culpa de Juan Antonio (M. Elite)
+    // divisores = divisores.substring(0, divisores.length - 2); //Por culpa de Juan Antonio (M. Elite)
     var listaDivisores = document.createElement("li");
     listaDivisores.textContent = divisores;
     var rangoEdad = "";
@@ -71,6 +89,11 @@ function analiza_edad() {
     lista.appendChild(listaDivisores);
     lista.appendChild(edadTexto);
 }
+// 4. Crea una mini app que: a. Pregunte el nombre del usuario con un prompt().
+//  b. Lo muestre en pantalla dentro de un <p id="saludo">Hola, ___!</p>.
+//   c. Permita cambiar el color del saludo mediante un <select> con varios colores.
+//   d. Usa as HTMLSelectElement y as HTMLParagraphElement 
+//   para los elementos del DOM. 
 function mini_app() {
     var nombre = prompt("Dime tu nombre");
     var p = document.getElementById("saludo");
@@ -83,11 +106,13 @@ function mini_app() {
         option.text = color[0].toUpperCase() + color.slice(1);
         desplegable.appendChild(option);
     });
-    // Cambiar color 
-    desplegable.addEventListener("change", function () {
-        p.style.color = desplegable.value;
-    });
-    document.body.appendChild(desplegable);
+}
+function cambiar_color() {
+    var select = document.getElementById("color");
+    var colorOption = select.options[select.selectedIndex];
+    var color = colorOption.value;
+    var saludo = document.getElementById("saludo");
+    saludo.style.color = color;
 }
 function mostrar_informacion() {
     var mostrarInformacion = document.getElementById("menuInformacion");
@@ -111,6 +136,9 @@ function mostrar_informacion() {
 }
 function mini_navegador() {
     var inputUrl = document.getElementById('urlInput');
+    var url = inputUrl.value;
+    url = "https:\\" + url;
+    window.location.href = url;
 }
 //EJERCICIOS DE RECORRER NODOS
 function contarElementos() {

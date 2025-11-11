@@ -18,7 +18,7 @@
         <label for="telefono">Teléfono:</label>
         <input type="number" id="telefono" name="telefono"><br><br>
         <label for="nacimiento">Fecha Nacimiento:</label>
-        <input type="number" id="fechaNacimiento" name="nacimiento"><br><br>
+        <input type="date" id="fechaNacimiento" name="nacimiento"><br><br>
         <label for="url">URL:</label>
         <input type="text" id="url" name="url"><br><br>
         <label for="opcion">Seleccione una opción:</label>
@@ -28,16 +28,8 @@
             <option value="3">Calculo_Edad</option><br><br> 
             <option value="4">Almacenar_cookies</option><br><br>
         </select><br><br>
-            </form>
+        <button type="button" onclick="ejecutar_accion()">Enviar</button >
 
-        <button type="button" onclick="gestionarMenu()">Enviar</button >
-         <div  id="resultado" >
-            
+        <div id="resultado" style="background-color: grey;">
 
-
-
-         </div>   
-
-    
-</body>
-</html>
+        </div>

@@ -64,3 +64,5 @@ function calculaEdad() : number {
 
     }
 }
+function coockies(): void{
+    let nombre: string

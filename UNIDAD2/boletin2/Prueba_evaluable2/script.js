@@ -67,5 +67,5 @@ function almacena_cookie() {
     document.cookie = "telefono=" + input4.value;
     document.cookie = "fechaNacimiento=" + input5.value;
     document.cookie = "url=" + input6.value;
-    console.log.(document.cookie);
+    console.table(document.cookie);
 }

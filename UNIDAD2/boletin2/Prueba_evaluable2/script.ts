@@ -69,12 +69,13 @@ function almacena_cookie(): void{
     let input4:HTMLInputElement = document.getElementById("telefono") as HTMLInputElement;
     let input5:HTMLInputElement = document.getElementById("fechaNacimiento") as HTMLInputElement;
     let input6:HTMLInputElement = document.getElementById("url") as HTMLInputElement;
+    
     document.cookie = "nombre=" + input.value;
     document.cookie = "apellido=" + input2.value;
     document.cookie = "edad=" + inpu3.value;
     document.cookie = "telefono=" + input4.value;
     document.cookie = "fechaNacimiento=" + input5.value;
     document.cookie = "url=" + input6.value;   
+    console.table(document.cookie);
     
-    console.log.(document.cookie);
 }

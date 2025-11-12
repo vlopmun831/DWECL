@@ -1,6 +1,6 @@
-//  window.onload = function() {
-//     cargar_datos_cookie();
-//   };
+window.onload = function () {
+    cargar_datos_cookie();
+};
 function ejecutar_accion() {
     var select = document.getElementById('opciones');
     var opcion = select.value;
@@ -21,6 +21,7 @@ function ejecutar_accion() {
             console.log("Opción no válida");
             break;
     }
+    ;
     function nombre_reves() {
         var _a;
         var resultado = document.getElementById("resultado");
@@ -75,11 +76,23 @@ function ejecutar_accion() {
         var input5 = document.getElementById("fechaNacimiento");
         var input6 = document.getElementById("url");
         document.cookie = "nombre=" + input.value;
-        document.cookie = "apellido=" + input.value;
+        document.cookie = "apellido=" + input2.value;
         document.cookie = "edad=" + input3.value;
         document.cookie = "telefono=" + input4.value;
         document.cookie = "fechaNacimiento=" + input5.value;
         document.cookie = "url=" + input6.value;
         console.table(document.cookie);
+    }
+    function cargar_datos_cookie(key) {
+        var arrayCookies = document.cookie.split(";");
+        var result = " ";
+        for (var i = 0; i < arrayCookies.length; i++) {
+            var clave = arrayCookies[i].split("=")[0];
+            var valor = arrayCookies[i].split("=")[1];
+            if (clave.trim() == key) {
+                result = valor;
+            }
+        }
+        return result;
     }
 }

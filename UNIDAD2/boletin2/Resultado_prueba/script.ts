@@ -1,6 +1,6 @@
-//  window.onload = function() {
-//     cargar_datos_cookie();
-//   };
+ window.onload = function() {
+    cargar_datos_cookie();
+  };
  
  function ejecutar_accion():void{
     let select: HTMLSelectElement = document.getElementById('opciones') as HTMLSelectElement;
@@ -26,9 +26,9 @@
         console.log("Opción no válida");
         break;
 
-}
+};
 
-
+ 
 
 function nombre_reves(): string {
     let resultado = document.getElementById("resultado") as HTMLDivElement;
@@ -94,7 +94,7 @@ function almacena_coockies(): void {
     let input6:HTMLInputElement = document.getElementById("url") as HTMLInputElement;
 
     document.cookie = "nombre=" + input.value;
-    document.cookie = "apellido=" + input.value;
+    document.cookie = "apellido=" + input2.value;
     document.cookie = "edad=" + input3.value;
     document.cookie = "telefono=" + input4.value;
     document.cookie = "fechaNacimiento=" + input5.value;
@@ -102,4 +102,20 @@ function almacena_coockies(): void {
     console.table(document.cookie);
 
  }
-}
+
+
+function cargar_datos_cookie(key:string): string {
+    let arrayCookies = document.cookie.split(";");
+    let result= " ";
+    for(let i = 0; i < arrayCookies.length; i++){
+        let clave= arrayCookies[i].split("=")[0];
+        let valor = arrayCookies[i].split("=")[1];
+        if(clave.trim() == key){
+            result = valor;
+        }
+        }
+return result;
+
+    }
+
+ }

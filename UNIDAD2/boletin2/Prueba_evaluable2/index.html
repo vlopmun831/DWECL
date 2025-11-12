@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>Formulario de Registro</h1>
+    <form>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre"><br><br>
+        <label for="apellido">Apellidos:</label>
+        <input type="text" id="apellido"><br><br>
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad"><br><br>
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono"><br><br>
+        <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+        <input type="date" id="fechaNacimiento" ><br><br>
+        <label for="url">URL:</label>
+        <input type="url" id="url"><br><br>
+        <select name="opcion" id="opcion">
+            <option value="1">Nombre_Revés</option>
+            <option value="2">Redirigir</option>
+            <option value="3">Calcula_Edad</option>
+            <option value="4">aAlmacenar_cookie</option>
+
+        </select><br><br>
+      </form>
+    <button id="boton" onclick="ejecutar_menu()" >Ejecutar</button>
+<div id="resultado" style="background-color: lightgray; padding: 45px;">
+
+</div>
+
+</body>
+</html>

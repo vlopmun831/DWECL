@@ -3,6 +3,7 @@ window.onload = function () {
     iniciar();
 };
 // Array de equipos - Datos iniciales de la liga
+// Cada equipo es un objeto con sus propiedades
 var equipos = [
     {
         nombre: "Real Madrid",

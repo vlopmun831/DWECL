@@ -3,23 +3,9 @@ window.onload = function() {
     iniciar();
 };
 
-
-
-
-// Interfaz para definir la estructura de un equipo
-interface Equipo {
-    nombre: string;
-    puntos: number;
-    partidosJugados: number;
-    partidosGanados: number;
-    partidosEmpatados: number;
-    partidosPerdidos: number;
-    golesFavor: number;
-    golesContra: number;
-}
-
 // Array de equipos - Datos iniciales de la liga
-let equipos: Equipo[] = [
+// Cada equipo es un objeto con sus propiedades
+let equipos = [
     {
         nombre: "Real Madrid",
         puntos: 28,
@@ -121,8 +107,6 @@ let equipos: Equipo[] = [
         golesContra: 27
     }
 ];
-
-
 
 /**
  * Función para ordenar los equipos por puntos (de mayor a menor)
@@ -237,7 +221,7 @@ function llenarSelectores(): void {
 /**
  * Función para buscar un equipo por su nombre
  */
-function buscarEquipo(nombre: string): Equipo | null {
+function buscarEquipo(nombre: string) {
     for (let i = 0; i < equipos.length; i++) {
         if (equipos[i].nombre === nombre) {
             return equipos[i];
@@ -373,4 +357,3 @@ function iniciar(): void {
         formulario.addEventListener('submit', procesarFormulario);
     }
 }
-

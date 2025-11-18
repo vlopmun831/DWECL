@@ -325,3 +325,38 @@ function ejercicio_cookie(){
 function almacenar_cookie(){
   let cookieUsuario: HTML
 }
+
+// Función para calcular la edad según la fecha de nacimiento
+function calcularEdad(fechaNacimiento: string): number {
+  const nacimiento = new Date(fechaNacimiento);
+  const hoy = new Date();
+  
+  let edad = hoy.getFullYear() - nacimiento.getFullYear();
+  const mesActual = hoy.getMonth();
+  const mesNacimiento = nacimiento.getMonth();
+  
+  if (mesActual < mesNacimiento || (mesActual === mesNacimiento && hoy.getDate() < nacimiento.getDate())) {
+    edad--;
+  }
+  
+  return edad;
+}
+
+// Función alternativa que recibe entrada del usuario vía prompt
+function calcularEdadPrompt(): void {
+  const fechaNacimiento: string = prompt("Introduce tu fecha de nacimiento (YYYY-MM-DD):") ?? "";
+  
+  if (!fechaNacimiento) {
+    console.error("Por favor, introduce una fecha válida");
+    return;
+  }
+  
+  const edad = calcularEdad(fechaNacimiento);
+  
+  if (isNaN(edad) || edad < 0) {
+    console.error("La fecha introducida no es válida");
+    return;
+  }
+  
+  console.log(`Tu edad es: ${edad} años`);
+}

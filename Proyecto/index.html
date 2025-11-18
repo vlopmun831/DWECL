@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clasificación Liga de Fútbol</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚽ Liga de Fútbol 2025-2026</h1>
+            <p class="subtitle">Clasificación y Resultados</p>
+        </header>
+
+        <main>
+            <!-- Tabla de Clasificación -->
+            <section class="clasificacion-section">
+                <h2>📊 Clasificación</h2>
+                <div class="table-container">
+                    <table id="tablaClasificacion">
+                        <thead>
+                            <tr>
+                                <th>Pos</th>
+                                <th>Nombre</th>
+                                <th>Puntos</th>
+                                <th>Partidos Jugados</th>
+                                <th>Partidos Ganados</th>
+                                <th>Partidos Empatados</th>
+                                <th>Partidos Perdidos</th>
+                                <th>Goles a Favor</th>
+                                <th>Goles en Contra</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cuerpoTabla">
+                            <!-- Se llenará dinámicamente con TypeScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Formulario de Resultados -->
+            <section class="formulario-section">
+                <h2>📝 Registrar Resultado</h2>
+                <form id="formularioResultado">
+                    <div class="form-group">
+                        <label for="equipoLocal">Equipo Local:</label>
+                        <select id="equipoLocal" name="equipoLocal" required>
+                            <option value="">-- Selecciona equipo local --</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group goles-container">
+                        <div class="goles-input">
+                            <label for="golesLocal">Goles Local:</label>
+                            <input type="number" id="golesLocal" name="golesLocal" 
+                                   min="0" max="20" value="0" required>
+                        </div>
+                        
+                        <span class="vs-separator">VS</span>
+                        
+                        <div class="goles-input">
+                            <label for="golesVisitante">Goles Visitante:</label>
+                            <input type="number" id="golesVisitante" name="golesVisitante" 
+                                   min="0" max="20" value="0" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="equipoVisitante">Equipo Visitante:</label>
+                        <select id="equipoVisitante" name="equipoVisitante" required>
+                            <option value="">-- Selecciona equipo visitante --</option>
+                        </select>
+                    </div>
+
+                    <div id="mensajeError" class="error-message"></div>
+
+                    <button type="submit" class="btn-submit">
+                        <span>⚽</span> Registrar Resultado
+                    </button>
+                </form>
+            </section>
+
+            
+        </main>
+
+        <footer>
+            <p>Desarrollo Web Entorno Cliente - Vanesa López - 2º DAW 2025-2026</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-/* Reset y estilos base */
+
 * {
     margin: 0;
     padding: 0;
@@ -22,7 +22,7 @@ body {
     overflow: hidden;
 }
 
-/* Header */
+
 header {
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     color: white;
@@ -41,7 +41,7 @@ header h1 {
     opacity: 0.9;
 }
 
-/* Main content */
+
 main {
     padding: 30px;
 }
@@ -58,7 +58,6 @@ section h2 {
     border-bottom: 3px solid #667eea;
 }
 
-/* Tabla de clasificación */
 .table-container {
     overflow-x: auto;
     border-radius: 10px;
@@ -117,7 +116,7 @@ tbody tr:hover {
     font-weight: 600;
 }
 
-/* Colores por posición */
+
 tr.champions {
     background-color: #e8f5e9;
     border-left: 4px solid #4caf50;
@@ -133,7 +132,7 @@ tr.descenso {
     border-left: 4px solid #f44336;
 }
 
-/* Formulario */
+
 .formulario-section {
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     padding: 30px;
@@ -178,7 +177,7 @@ input[type="number"]:focus {
     align-items: end;
 }
 
-.vs-separator {
+.vs {
     font-size: 1.5em;
     font-weight: bold;
     color: #667eea;
@@ -228,82 +227,7 @@ input[type="number"]:focus {
     font-weight: 500;
 }
 
-/* Últimos resultados */
-.resultados-lista {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
 
-.resultado-item {
-    display: grid;
-    grid-template-columns: 2fr auto 2fr 1fr;
-    align-items: center;
-    gap: 15px;
-    padding: 15px 20px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-left: 4px solid #ddd;
-    transition: all 0.3s ease;
-}
-
-.resultado-item:hover {
-    transform: translateX(5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.resultado-item.victoria-local {
-    border-left-color: #4caf50;
-    background: linear-gradient(90deg, #e8f5e9 0%, white 100%);
-}
-
-.resultado-item.victoria-visitante {
-    border-left-color: #f44336;
-    background: linear-gradient(90deg, white 0%, #ffebee 100%);
-}
-
-.resultado-item.empate {
-    border-left-color: #ff9800;
-    background: linear-gradient(90deg, #fff3e0 0%, white 50%, #fff3e0 100%);
-}
-
-.equipo-local {
-    text-align: right;
-    font-weight: 600;
-    color: #1e3c72;
-}
-
-.equipo-visitante {
-    text-align: left;
-    font-weight: 600;
-    color: #1e3c72;
-}
-
-.marcador {
-    font-size: 1.3em;
-    font-weight: bold;
-    color: #667eea;
-    padding: 5px 15px;
-    background: white;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.fecha {
-    font-size: 0.85em;
-    color: #666;
-    text-align: right;
-}
-
-.no-resultados {
-    text-align: center;
-    color: #999;
-    font-style: italic;
-    padding: 30px;
-}
-
-/* Footer */
 footer {
     background: #1e3c72;
     color: white;
@@ -312,43 +236,17 @@ footer {
     font-size: 0.9em;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 1.8em;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
-    
-    .goles-container {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    
-    .vs-separator {
-        text-align: center;
-        margin: 0;
-    }
-    
-    .resultado-item {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 10px;
-    }
-    
-    .equipo-local,
-    .equipo-visitante {
-        text-align: center;
-    }
-    
-    .fecha {
-        text-align: center;
-    }
-    
-    table {
-        font-size: 0.85em;
-    }
-    
-    th, td {
-        padding: 8px 5px;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
+tbody tr {
+    animation: fadeIn 0.5s ease-out;
+}

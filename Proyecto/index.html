@@ -4,24 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clasificación Liga de Fútbol</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>⚽ Liga de Fútbol 2025-2026</h1>
+            <h1> ⚽ Liga de Fútbol 2025-2026 ⚽</h1>
             <p class="subtitle">Clasificación y Resultados</p>
         </header>
 
         <main>
-            <!-- Tabla de Clasificación -->
+            
             <section class="clasificacion-section">
-                <h2>📊 Clasificación</h2>
+                <h2>🏆🏆 Clasificación 🏆🏆</h2>
+
                 <div class="table-container">
                     <table id="tablaClasificacion">
                         <thead>
                             <tr>
-                                <th>Pos</th>
+                                <th>Posición</th>
                                 <th>Nombre</th>
                                 <th>Puntos</th>
                                 <th>Partidos Jugados</th>
@@ -33,15 +34,14 @@
                             </tr>
                         </thead>
                         <tbody id="cuerpoTabla">
-                            <!-- Se llenará dinámicamente con TypeScript -->
+                            <!-- Aquí se llena la tabla directamente con TypeScript -->
                         </tbody>
                     </table>
                 </div>
             </section>
 
-            <!-- Formulario de Resultados -->
             <section class="formulario-section">
-                <h2>📝 Registrar Resultado</h2>
+                <h2>📝📝 Registrar Resultado 📝📝</h2>
                 <form id="formularioResultado">
                     <div class="form-group">
                         <label for="equipoLocal">Equipo Local:</label>
@@ -57,7 +57,7 @@
                                    min="0" max="20" value="0" required>
                         </div>
                         
-                        <span class="vs-separator">VS</span>
+                        <span class="vs">VS</span>
                         
                         <div class="goles-input">
                             <label for="golesVisitante">Goles Visitante:</label>
@@ -75,26 +75,17 @@
 
                     <div id="mensajeError" class="error-message"></div>
 
-                    <button type="submit" class="btn-submit">
-                        <span>⚽</span> Registrar Resultado
-                    </button>
+                    <button type="submit" class="btn-submit"> ⚡ Registrar Resultado ⚡ </button>
                 </form>
             </section>
 
-            <!-- Últimos Resultados -->
-            <section class="resultados-section" style="display: none;">
-                <h2>🏆 Últimos Resultados</h2>
-                <div id="ultimosResultados" class="resultados-lista">
-                    <p class="no-resultados">Aún no hay resultados registrados</p>
-                </div>
-            </section>
         </main>
 
         <footer>
-            <p>Desarrollo Web Entorno Cliente - 2º DAW 2025-2026</p>
+            <p>Desarrollo Web Entorno Cliente -Vanesa López- 2º DAW </p>
         </footer>
     </div>
 
-    <script src="app.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

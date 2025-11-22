@@ -3,7 +3,7 @@ window.onload = function() {
     iniciar();
 };
 
-// Array de equipos - Datos iniciales de la liga
+// Array de equipos 
 // Cada equipo es un objeto con sus propiedades
 let equipos = [
     {
@@ -108,63 +108,40 @@ let equipos = [
     }
 ];
 
-/**
- * Función para ordenar los equipos por puntos (de mayor a menor)
- * Usa el algoritmo de ordenación burbuja
- */
+
 function ordenarEquipos(): void {
-    for (let i = 0; i < equipos.length - 1; i++) {
-        for (let j = 0; j < equipos.length - 1 - i; j++) {
-            // Primero: comparar por puntos
-            if (equipos[j].puntos < equipos[j + 1].puntos) {
-                // Intercambiar posiciones
-                let temp = equipos[j];
-                equipos[j] = equipos[j + 1];
-                equipos[j + 1] = temp;
-            } 
-            // Si tienen los mismos puntos, comparar por diferencia de goles
-            else if (equipos[j].puntos === equipos[j + 1].puntos) {
-                let difGoles1 = equipos[j].golesFavor - equipos[j].golesContra;
-                let difGoles2 = equipos[j + 1].golesFavor - equipos[j + 1].golesContra;
-                
-                if (difGoles1 < difGoles2) {
-                    // Intercambiar posiciones
-                    let temp = equipos[j];
-                    equipos[j] = equipos[j + 1];
-                    equipos[j + 1] = temp;
-                }
-                // Si tienen la misma diferencia, comparar por goles a favor
-                else if (difGoles1 === difGoles2 && equipos[j].golesFavor < equipos[j + 1].golesFavor) {
-                    let temp = equipos[j];
-                    equipos[j] = equipos[j + 1];
-                    equipos[j + 1] = temp;
-                }
+    for (let i = 0; i < equipos.length; i++) {
+        
+        // Busco el equipo con más puntos 
+        let posicionMejor = i;
+        
+        for (let j = i + 1; j < equipos.length; j++) {
+            if (equipos[j].puntos > equipos[posicionMejor].puntos) {
+                posicionMejor = j;
             }
         }
+        
+        // Pongo el mejor en la posición mejor
+        let temp = equipos[i];
+        equipos[i] = equipos[posicionMejor];
+        equipos[posicionMejor] = temp;
     }
 }
 
-/**
- * Función para mostrar la tabla de clasificación en la página
- */
 function mostrarTabla(): void {
-    // Ordenar equipos antes de mostrar
+    // Ordeno
     ordenarEquipos();
-    
-    // Obtener el elemento tbody de la tabla
-    let tbody = document.getElementById('cuerpoTabla');
-    
-    if (!tbody) return;
+    // Ocojo el  tbody de la tabla
+    let tbody: HTMLTableSectionElement = document.getElementById('cuerpoTabla') as HTMLTableSectionElement; ;
     
     // Limpiar la tabla
     tbody.innerHTML = '';
     
-    // Recorrer todos los equipos
     for (let i = 0; i < equipos.length; i++) {
         let equipo = equipos[i];
         
-        // Crear una nueva fila
-        let fila = document.createElement('tr');
+        
+        let fila = document.createElement('tr') ;
         
         // Añadir color según la posición
         if (i < 3) {
@@ -176,41 +153,65 @@ function mostrarTabla(): void {
         }
         
         // Crear el contenido de la fila
-        fila.innerHTML = `
-            <td class="posicion">${i + 1}</td>
-            <td class="nombre-equipo">${equipo.nombre}</td>
-            <td class="puntos"><strong>${equipo.puntos}</strong></td>
-            <td>${equipo.partidosJugados}</td>
-            <td>${equipo.partidosGanados}</td>
-            <td>${equipo.partidosEmpatados}</td>
-            <td>${equipo.partidosPerdidos}</td>
-            <td>${equipo.golesFavor}</td>
-            <td>${equipo.golesContra}</td>
-        `;
+         let celdaPosicion = document.createElement('td');
+        celdaPosicion.className = 'posicion';
+        celdaPosicion.textContent = (i + 1).toString();
+        
+        let celdaNombre = document.createElement('td');
+        celdaNombre.className = 'nombre-equipo';
+        celdaNombre.textContent = equipo.nombre;
+        
+        let celdaPuntos = document.createElement('td');
+        celdaPuntos.className = 'puntos';
+        celdaPuntos.textContent= equipo.puntos.toString();
+
+        let celdaPartidosJugados = document.createElement('td');
+        celdaPartidosJugados.textContent = equipo.partidosJugados.toString();
+        
+        let celdaPartidosGanados = document.createElement('td');
+        celdaPartidosGanados.textContent = equipo.partidosGanados.toString();
+        
+        let celdaPartidosEmpatados = document.createElement('td');
+        celdaPartidosEmpatados.textContent = equipo.partidosEmpatados.toString();
+        
+        let celdaPartidosPerdidos = document.createElement('td');
+        celdaPartidosPerdidos.textContent = equipo.partidosPerdidos.toString();
+        
+        let celdaGolesFavor = document.createElement('td');
+        celdaGolesFavor.textContent = equipo.golesFavor.toString();
+        
+        let celdaGolesContra = document.createElement('td');
+        celdaGolesContra.textContent = equipo.golesContra.toString();
+        
+        // Añadir todas las celdas a la fila
+        fila.appendChild(celdaPosicion);
+        fila.appendChild(celdaNombre);
+        fila.appendChild(celdaPuntos);
+        fila.appendChild(celdaPartidosJugados);
+        fila.appendChild(celdaPartidosGanados);
+        fila.appendChild(celdaPartidosEmpatados);
+        fila.appendChild(celdaPartidosPerdidos);
+        fila.appendChild(celdaGolesFavor);
+        fila.appendChild(celdaGolesContra);
         
         // Añadir la fila a la tabla
         tbody.appendChild(fila);
     }
 }
+    
 
-/**
- * Función para llenar los selectores del formulario con los nombres de los equipos
- */
 function llenarSelectores(): void {
-    let selectLocal = document.getElementById('equipoLocal') as HTMLSelectElement;
-    let selectVisitante = document.getElementById('equipoVisitante') as HTMLSelectElement;
-    
-    if (!selectLocal || !selectVisitante) return;
-    
-    // Recorrer todos los equipos
+    let selectLocal:HTMLSelectElement= document.getElementById('equipoLocal') as HTMLSelectElement;
+    let selectVisitante: HTMLSelectElement = document.getElementById('equipoVisitante') as HTMLSelectElement;
+        
     for (let i = 0; i < equipos.length; i++) {
-        // Crear opción para equipo local
+        // meto los datos para elegir equipo local
         let opcionLocal = document.createElement('option');
         opcionLocal.value = equipos[i].nombre;
         opcionLocal.textContent = equipos[i].nombre;
         selectLocal.appendChild(opcionLocal);
         
-        // Crear opción para equipo visitante
+        // Hago lo mismo para equipo visitante
         let opcionVisitante = document.createElement('option');
         opcionVisitante.value = equipos[i].nombre;
         opcionVisitante.textContent = equipos[i].nombre;
@@ -218,117 +219,96 @@ function llenarSelectores(): void {
     }
 }
 
-/**
- * Función para buscar un equipo por su nombre
- */
+
 function buscarEquipo(nombre: string) {
     for (let i = 0; i < equipos.length; i++) {
         if (equipos[i].nombre === nombre) {
             return equipos[i];
         }
     }
-    return null;
+    return equipos[0]; //Esto nunca va a pasar poque tenemos el desplegable pero si no me da error en let equipo siguiente porque podría ser null
 }
 
-/**
- * Función para actualizar las estadísticas de un equipo después de un partido
- */
+
 function actualizarEquipo(nombreEquipo: string, golesFavor: number, golesContra: number): void {
     let equipo = buscarEquipo(nombreEquipo);
-    
-    if (!equipo) return;
-    
-    // Actualizar estadísticas básicas
+        
+    // Actualizo estadísticas 
     equipo.partidosJugados++;
     equipo.golesFavor += golesFavor;
     equipo.golesContra += golesContra;
     
-    // Determinar resultado y actualizar
     if (golesFavor > golesContra) {
-        // Victoria
+
         equipo.partidosGanados++;
         equipo.puntos += 3;
+
     } else if (golesFavor === golesContra) {
-        // Empate
+        
         equipo.partidosEmpatados++;
         equipo.puntos += 1;
     } else {
-        // Derrota
         equipo.partidosPerdidos++;
     }
 }
 
-/**
- * Función para mostrar un mensaje en la página
- */
-function mostrarMensaje(mensaje: string, esError: boolean): void {
-    let divMensaje = document.getElementById('mensajeError');
-    
-    if (!divMensaje) return;
-    
-    divMensaje.textContent = mensaje;
-    divMensaje.style.display = 'block';
-    
-    if (esError) {
-        divMensaje.style.backgroundColor = '#f8d7da';
-        divMensaje.style.color = '#721c24';
-        divMensaje.style.borderColor = '#f5c6cb';
-    } else {
-        divMensaje.style.backgroundColor = '#d4edda';
-        divMensaje.style.color = '#155724';
-        divMensaje.style.borderColor = '#c3e6cb';
-    }
-    
-    // Ocultar mensaje después de 3 segundos
-    setTimeout(function() {
-        if (divMensaje) {
-            divMensaje.style.display = 'none';
-        }
-    }, 3000);
-}
 
-/**
- * Función que se ejecuta cuando se envía el formulario
- */
-function procesarFormulario(evento: Event): void {
-    evento.preventDefault();
+function procesarFormulario(): void {
     
-    // Obtener los valores del formulario
-    let selectLocal = document.getElementById('equipoLocal') as HTMLSelectElement;
-    let selectVisitante = document.getElementById('equipoVisitante') as HTMLSelectElement;
-    let inputGolesLocal = document.getElementById('golesLocal') as HTMLInputElement;
-    let inputGolesVisitante = document.getElementById('golesVisitante') as HTMLInputElement;
-    
-    if (!selectLocal || !selectVisitante || !inputGolesLocal || !inputGolesVisitante) return;
-    
+    let selectLocal:HTMLSelectElement = document.getElementById('equipoLocal') as HTMLSelectElement;
+    let selectVisitante:HTMLSelectElement = document.getElementById('equipoVisitante') as HTMLSelectElement;
+    let inputGolesLocal:HTMLInputElement= document.getElementById('golesLocal') as HTMLInputElement;
+    let inputGolesVisitante:HTMLInputElement = document.getElementById('golesVisitante') as HTMLInputElement;
+        
     let equipoLocal = selectLocal.value;
     let equipoVisitante = selectVisitante.value;
     let golesLocal = parseInt(inputGolesLocal.value);
     let golesVisitante = parseInt(inputGolesVisitante.value);
     
-    // VALIDACIÓN: Los equipos no pueden ser iguales
+    //  Los equipos no pueden ser iguales
+
+    let divMensaje:HTMLDivElement = document.getElementById('mensajeError') as HTMLDivElement;
+
+
     if (equipoLocal === equipoVisitante) {
-        mostrarMensaje('❌ Error: El equipo local y visitante no pueden ser el mismo', true);
+          if (divMensaje) {
+            divMensaje.textContent = '❌ Error: El equipo local y visitante no pueden ser el mismo';
+            divMensaje.style.display = 'block';
+            divMensaje.style.backgroundColor = '#f8d7da';
+            divMensaje.style.color = '#721c24';
+            divMensaje.style.borderColor = '#f5c6cb';
+            
+            setTimeout(function() {
+                if (divMensaje) {
+                    divMensaje.style.display = 'none';
+                }
+            }, 3000);
+        }
         return;
     }
     
-    // VALIDACIÓN: Ambos equipos deben estar seleccionados
-    if (equipoLocal === '' || equipoVisitante === '') {
-        mostrarMensaje('❌ Error: Debes seleccionar ambos equipos', true);
-        return;
-    }
-    
-    // VALIDACIÓN: Los goles deben ser números válidos
+    //  Los goles deben ser números válidos
     if (isNaN(golesLocal) || isNaN(golesVisitante) || golesLocal < 0 || golesVisitante < 0) {
-        mostrarMensaje('❌ Error: Los goles deben ser números positivos', true);
+        if (divMensaje) {
+            divMensaje.textContent = '❌ Error: Los goles deben ser números positivos';
+            divMensaje.style.display = 'block';
+            divMensaje.style.backgroundColor = '#f8d7da';
+            divMensaje.style.color = '#721c24';
+            divMensaje.style.borderColor = '#f5c6cb';
+            
+            setTimeout(function() {
+                if (divMensaje) {
+                    divMensaje.style.display = 'none';
+                }
+            }, 3000);
+        }
         return;
     }
+
     
-    // Actualizar estadísticas de ambos equipos
     actualizarEquipo(equipoLocal, golesLocal, golesVisitante);
     actualizarEquipo(equipoVisitante, golesVisitante, golesLocal);
     
-    // Actualizar la tabla con la nueva clasificación
     mostrarTabla();
     
     // Limpiar el formulario
@@ -337,23 +317,25 @@ function procesarFormulario(evento: Event): void {
     inputGolesLocal.value = '0';
     inputGolesVisitante.value = '0';
     
-    // Mostrar mensaje de éxito
-    mostrarMensaje('✅ Resultado registrado correctamente', false);
+    if (divMensaje) {
+        divMensaje.textContent = '✅ Resultado registrado correctamente';
+        divMensaje.style.display = 'block';
+        divMensaje.style.backgroundColor = '#d4edda';
+        divMensaje.style.color = '#155724';
+        divMensaje.style.borderColor = '#c3e6cb';
+        
+        setTimeout(function() {
+            if (divMensaje) {
+                divMensaje.style.display = 'none';
+            }
+        }, 3000);
+    }
 }
 
-/**
- * Función principal que se ejecuta al cargar la página
- */
+
 function iniciar(): void {
-    // Mostrar la tabla inicial
     mostrarTabla();
     
-    // Llenar los selectores del formulario
     llenarSelectores();
     
-    // Configurar el evento del formulario
-    let formulario = document.getElementById('formularioResultado');
-    if (formulario) {
-        formulario.addEventListener('submit', procesarFormulario);
-    }
 }

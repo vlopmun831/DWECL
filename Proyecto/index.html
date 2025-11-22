@@ -10,16 +10,16 @@
     <div class="container">
         <header>
             <h1> ⚽ Liga de Fútbol 2025-2026 ⚽</h1>
-            <p class="subtitle">Clasificación y Resultados</p>
+            <p >Clasificación y Resultados</p>
         </header>
 
         <main>
             
-            <section class="clasificacion-section">
+            <section>
                 <h2>🏆🏆 Clasificación 🏆🏆</h2>
 
-                <div class="table-container">
-                    <table id="tablaClasificacion">
+                <div class="contenedor-tabla">
+                    <table>
                         <thead>
                             <tr>
                                 <th>Posición</th>
@@ -40,12 +40,12 @@
                 </div>
             </section>
 
-            <section class="formulario-section">
+            <section>
                 <h2>📝📝 Registrar Resultado 📝📝</h2>
                 <form id="formularioResultado">
                     <div class="form-group">
                         <label for="equipoLocal">Equipo Local:</label>
-                        <select id="equipoLocal" name="equipoLocal" required>
+                        <select id="equipoLocal" name="equipoLocal" >
                             <option value="">-- Selecciona equipo local --</option>
                         </select>
                     </div>
@@ -53,30 +53,29 @@
                     <div class="form-group goles-container">
                         <div class="goles-input">
                             <label for="golesLocal">Goles Local:</label>
-                            <input type="number" id="golesLocal" name="golesLocal" 
-                                   min="0" max="20" value="0" required>
+                            <input type="number" id="golesLocal" name="golesLocal" >
                         </div>
                         
                         <span class="vs">VS</span>
                         
                         <div class="goles-input">
                             <label for="golesVisitante">Goles Visitante:</label>
-                            <input type="number" id="golesVisitante" name="golesVisitante" 
-                                   min="0" max="20" value="0" required>
+                            <input type="number" id="golesVisitante" name="golesVisitante" >
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="equipoVisitante">Equipo Visitante:</label>
-                        <select id="equipoVisitante" name="equipoVisitante" required>
+                        <select id="equipoVisitante" name="equipoVisitante" >
                             <option value="">-- Selecciona equipo visitante --</option>
                         </select>
                     </div>
 
                     <div id="mensajeError" class="error-message"></div>
 
-                    <button type="submit" class="btn-submit"> ⚡ Registrar Resultado ⚡ </button>
                 </form>
+                 <button type="submit" class="btn-submit" onclick="procesarFormulario()"> ⚡ Registrar Resultado ⚡ </button>
+
             </section>
 
         </main>

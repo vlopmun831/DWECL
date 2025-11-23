@@ -1,4 +1,4 @@
-// Ejecutar cuando la página se cargue completamente
+// Ejecutar cuando la página se cargue
 window.onload = function () {
     iniciar();
 };

@@ -141,7 +141,7 @@
 
         }
 
-        console.log("Por último, desde el el bloque principal, intento acceder al valor de una variable interna: "+prueba);
+        console.log("Por último, desde el el bloque principal, intento acceder al valor de una variable interna: "+prueba2);
             
     }
 
@@ -188,7 +188,8 @@
             // confirmación para asegurarse que el usuario está seguro de su acción.
 
         function confirmar(){
-        let respuesta = prompt("¿Estás seguro de su acción?")
+        let respuesta = window.confirm("¿Estás seguro de su acción?");
+        console.log("Decisión del usurio:" + respuesta);
         }
 
 
@@ -330,3 +331,8 @@
 
                     console.log("El número " + n + " tiene " + multiplo + " múltiplos");
                 }
+
+
+
+
+                

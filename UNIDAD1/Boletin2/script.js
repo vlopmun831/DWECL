@@ -98,13 +98,13 @@ function fibonacci(numero){
 
         let delta = (Math.pow(b,2) - 4*a*c);
         if (delta < 0){
-            console.error("No hay solución a la ecuación");
+            console.error("No hay solución a raices negativas");
         }else if (delta == 0){
             let result = (-b /(2*a)).toFixed(2);
             console.log("La solución de " +  a + "x^2 + " + b + "x + " +c + " =0 es (" + result + ")");
         }else{
-        let resul1 = (-b + Math.sqrt(delta) )/2*a.toFixed(2);
-        let resul2 = (-b - Math.sqrt(delta))/2*a.toFixed(2);
+        let resul1 = (-b + Math.sqrt(delta) )/(2*a).toFixed(2);
+        let resul2 = (-b - Math.sqrt(delta))/(2*a).toFixed(2);
         console.log("El resultado de la ecuación de :" + a + "x^2 " + b + "x" + c + " = 0 es (" + resul1 + ", " + resul2 + ")");
     }
     }

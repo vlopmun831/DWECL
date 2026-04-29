@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel de Alumnos - Vanesa López</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main>
+        <h1 class="main-title">Panel de Alumnos</h1>
+
+        <!-- SECCIÓN DE LISTAS -->
+        <section class="alumnos">
+            <!-- Columna Izquierda: Origen -->
+            <article class="column">
+                <h2>Lista de Alumnos</h2>
+                <ul id="listaAlumnos" class="lista">
+                    <!-- Ejemplo de alumno precargado -->
+                    <li class="alumno" draggable="true">Alumno de Prueba 20</li>
+                </ul>
+            </article>
+
+            <!-- Columna Derecha: Destino (ID: selecteds) -->
+            <article class="column" id="selecteds">
+                <h2>Seleccionados</h2>
+                <ul id="listaSelected" class="lista">
+                    <!-- Aquí caerán los alumnos soltados -->
+                </ul>
+            </article>
+        </section>
+
+        <!-- SECCIÓN DE BOTONES -->
+        <section class="control">
+            <!-- ID "new" para abrir el formulario -->
+            <button id="new" class="btn">Nuevo</button>
+            <button id="btn-enviar" class="btn">Enviar</button>
+        </section>
+
+        <!-- SECCIÓN FORMULARIO (ID: form) -->
+        <section id="form" style="display: none;">
+            <form>
+                <input type="text" id="nombre" placeholder="Nombre" required>
+                <input type="text" id="apellidos" placeholder="Apellidos" required>
+                <input type="number" id="edad" placeholder="Edad" required>
+                
+                <!-- ID "add" para procesar el formulario -->
+                <button type="button" id="add">Añadir Alumno</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Vanesa López Muñoz || DWECL || 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

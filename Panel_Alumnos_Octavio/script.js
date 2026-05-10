@@ -15,13 +15,11 @@ function asignarEventosDrag(alumno) {
 }
 
 window.onload = () => {
-    // Aseguramos que el formulario esté oculto
+    //  formulario  oculto
     document.getElementById("form").style.display = "none";
 
-    // Seleccionamos los alumnos que ya vienen por defecto en el HTML
     let alumnosIniciales = document.getElementsByClassName("alumno");
     
-    // Les asignamos los eventos de arrastre uno por uno
     for (let alumno of alumnosIniciales) {
         asignarEventosDrag(alumno);
     }
@@ -34,7 +32,6 @@ document.getElementById("new").addEventListener("click", () => {
 
 // añadimos alumno
 document.getElementById("add").addEventListener("click", () => {
-    //  Capturamos valores de los inputs
     let nom = document.getElementById("nombre").value;
     let ape = document.getElementById("apellidos").value;
     let eda = document.getElementById("edad").value;

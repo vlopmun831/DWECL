@@ -1,7 +1,18 @@
-
-
 // Variable global para saber qué estamos moviendo
 let elementoArrastrando = null;
+
+// Función para asignar eventos de arrastre a un alumno
+function asignarEventosDrag(alumno) {
+    alumno.addEventListener("dragstart", (e) => {
+        elementoArrastrando = e.target;
+        e.target.classList.add("dragging");
+    });
+
+    alumno.addEventListener("dragend", (e) => {
+        e.target.classList.remove("dragging");
+        elementoArrastrando = null;
+    });
+}
 
 window.onload = () => {
     // Aseguramos que el formulario esté oculto
@@ -12,15 +23,13 @@ window.onload = () => {
     
     // Les asignamos los eventos de arrastre uno por uno
     for (let alumno of alumnosIniciales) {
-        alumno.addEventListener("dragstart", (e) => {
-            elementoArrastrando = e.target;
-        });
+        asignarEventosDrag(alumno);
     }
 };
 
 // abrimos formulario
 document.getElementById("new").addEventListener("click", () => {
-    document.getElementById("form").style.display = "block";
+    document.getElementById("form").style.display = "flex"; // Cambiado a flex para que el modal funcione bien
 });
 
 // añadimos alumno
@@ -30,6 +39,10 @@ document.getElementById("add").addEventListener("click", () => {
     let ape = document.getElementById("apellidos").value;
     let eda = document.getElementById("edad").value;
 
+    if (!nom || !ape || !eda) {
+        alert("Por favor, rellena todos los campos.");
+        return;
+    }
    
     // creamos el elemento li(alumno)
     let li = document.createElement("li");
@@ -38,9 +51,7 @@ document.getElementById("add").addEventListener("click", () => {
     li.textContent = nom + " " + ape + " " + eda;
 
     //  evento de arrastre al nuevo alumno creado
-    li.addEventListener("dragstart", (e) => {
-        elementoArrastrando = e.target;
-    });
+    asignarEventosDrag(li);
 
     // lo metemos en la lista de alumnos y cierro/limpio formulario
     document.getElementById("listaAlumnos").appendChild(li);

@@ -111,6 +111,13 @@ main {
     opacity: 0.6;
 }
 
+.dragging {
+    opacity: 0.4;
+    transform: scale(0.95);
+    border: 2px dashed var(--primary);
+    background-color: #eef2ff;
+}
+
 /* Sección de Botones (Control) */
 .control {
     display: flex;
